@@ -49,7 +49,7 @@ function showDayForecast(data, index) {
   // Create weather detail output strings
   var temperatureString = "<h3 class='mb-1'>" + Math.round(data.apparentTemperatureMax) + "F / " + Math.round(data.apparentTemperatureMin) + "F" + "</h3>";
   var descriptionString = "<p class='mb-0'>" + data.summary + "</p>";
-  var rainString = "<p class='mb-0'>" + data.precipProbability*100 + "% chance of rain" + "</p>";
+  var rainString = "<p class='mb-0'>" + Math.round(data.precipProbability*100) + "% chance of rain" + "</p>";
 
   // Create day forecast container
   var newElementHtml = "<div class='row day-forecast'>";
@@ -59,7 +59,7 @@ function showDayForecast(data, index) {
 
   // Add container for Skycons. Add the skycon after HTML is appended
   var canvasName = "icon_" + index;
-  newElementHtml += "<div class='col-sm-3'>" + "<canvas id='" + canvasName + "' width='128' height='128'></canvas>" + "</div>";
+  newElementHtml += "<div class='col-sm-3'>" + "<canvas class='day-forecast__icon' id='" + canvasName + "' width='128' height='128'></canvas>" + "</div>";
 
   // Add weather details
   newElementHtml += "<div class='col-sm-6'>" + temperatureString + descriptionString + rainString + "</div>";

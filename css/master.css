@@ -7,8 +7,21 @@
 .day-forecast {
   border: 1px solid #ddd;
   border-radius: 10px;
-  margin-bottom: 1rem;
-  padding: 1rem; }
+  margin: 0 1rem 1rem 1rem;
+  padding: 1rem;
+  text-align: center; }
 
 .day-forecast__day {
   text-transform: uppercase; }
+
+.day-forecast__icon {
+  display: block;
+  margin: 0.5rem auto 0 auto; }
+
+@media (min-width: 576px) {
+  .day-forecast {
+    margin: 0 0 1rem 0;
+    text-align: left; }
+
+  .day-forecast__icon {
+    margin: 0 auto; } }
