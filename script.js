@@ -1,19 +1,29 @@
 $(document).ready(function() {
-  console.log("working!");
+  console.log("jquery loaded!");
 
   if(navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(getWeatherData);
   }
 
   function getWeatherData(position) {
-    console.log(position.coords.latitude);
+    // console.log(position.coords.latitude);
     var lat = position.coords.latitude;
     var lon = position.coords.longitude;
+
+    // Update the location strings
+    //https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=AIzaSyB0QrfvWuvaMja9s-_qJpxgHCxMvkY5kLA
+    $.getJSON("https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + lon + "&key=AIzaSyB0QrfvWuvaMja9s-_qJpxgHCxMvkY5kLA", function(response) {
+      console.log("location request made!");
+      $('.location').html(response.results[0].formatted_address);
+      // console.log(response);
+    });
+
     $('.location').html("Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
 
     //Make request for weather using lat and lon params and print
     //https://api.darksky.net/forecast/ca6136574e3da0e0a583474d13934794/
     $.getJSON("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/ca6136574e3da0e0a583474d13934794/" + lat + "," + lon, function(response) {
+      console.log("weather request made!");
       console.log(response);
       showForecast(response);
     });
