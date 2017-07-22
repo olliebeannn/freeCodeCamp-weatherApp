@@ -29,12 +29,21 @@ function showForecast(data) {
 
 function showDayForecast(data) {
   // console.log("day forecast function");
-  var temperatureString = Math.round(data.apparentTemperatureMin) + "F / " + Math.round(data.apparentTemperatureMax) + "F";
+  // var day = moment.unix(data.time);
+  // console.log(day);
+
+  var temperatureString = "<p>" + Math.round(data.apparentTemperatureMin) + "F / " + Math.round(data.apparentTemperatureMax) + "F" + "</p>";
+
+  var descriptionString = "<p>" + data.summary + "</p>";
+
+  var rainString = "<p>" + data.precipProbability*100 + "% chance of rain" + "</p>";
 
   var newElementHtml = "<div class='row'><div class='col-sm-6'>";
   newElementHtml += data.time;
   newElementHtml += "</div><div class='col-sm-6'>";
   newElementHtml += temperatureString;
+  newElementHtml += descriptionString;
+  newElementHtml += rainString;
   newElementHtml += "</div>";
 
   newElementHtml += "</div>"
