@@ -1,0 +1,14 @@
+#forecast-display {
+  margin: 0 auto;
+}
+
+.day-forecast {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+
+.day-forecast__day {
+  text-transform: uppercase;
+}

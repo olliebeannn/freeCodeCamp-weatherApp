@@ -33,11 +33,11 @@ function showDayForecast(data, index) {
 
   // Create date output strings
   var day = moment.unix(data.time);
-  var dayOfWeek = "<p class='mb-0'>" + day.format("dddd") + "</p>";
-  var dateString = "<p class='mb-0'>" + day.format("MMM Do") + "</p>";
+  var dayOfWeek = "<p class='mb-1 day-forecast__day'>" + day.format("dddd") + "</p>";
+  var dateString = "<h3 class='mb-0'>" + day.format("MMM Do") + "</h3>";
 
   // Create weather detail output strings
-  var temperatureString = "<p class='mb-0'>" + Math.round(data.apparentTemperatureMin) + "F / " + Math.round(data.apparentTemperatureMax) + "F" + "</p>";
+  var temperatureString = "<h3 class='mb-1'>" + Math.round(data.apparentTemperatureMax) + "F / " + Math.round(data.apparentTemperatureMin) + "F" + "</h3>";
   var descriptionString = "<p class='mb-0'>" + data.summary + "</p>";
   var rainString = "<p class='mb-0'>" + data.precipProbability*100 + "% chance of rain" + "</p>";
 
