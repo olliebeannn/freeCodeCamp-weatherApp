@@ -14,7 +14,7 @@ $(document).ready(function() {
     //https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=AIzaSyB0QrfvWuvaMja9s-_qJpxgHCxMvkY5kLA
     $.getJSON("https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + lon + "&key=AIzaSyB0QrfvWuvaMja9s-_qJpxgHCxMvkY5kLA", function(response) {
       console.log("location request made!");
-      $('.location').html(response.results[0].formatted_address);
+      $('.current-location').html(response.results[0].formatted_address);
       // console.log(response);
     });
 
